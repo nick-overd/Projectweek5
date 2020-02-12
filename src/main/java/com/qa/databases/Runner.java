@@ -14,8 +14,8 @@ public class Runner {
 			}
 		//order
 		MysqlOrderDao orderdao = new MysqlOrderDao();
-		ArrayList<Orders> orders = orderdao.readAll();
-		for(Orders order : orders) {
+		ArrayList<Order> orders = orderdao.readAll();
+		for(Order order : orders) {
 			System.out.println(order.getOrderid() + " " + order.getCustomerid());
 		}
 		//item
@@ -26,8 +26,8 @@ public class Runner {
 		}
 		//itemorder
 		MysqlItemOrderDao itemorderdao = new MysqlItemOrderDao();
-		ArrayList<ItemsOrders> itemorders = itemorderdao.readAll();
-		for(ItemsOrders ItemOrder : itemorders) {
+		ArrayList<ItemOrder> itemorders = itemorderdao.readAll();
+		for(ItemOrder ItemOrder : itemorders) {
 			System.out.println(ItemOrder.getItorid() + " " + ItemOrder.getOrderid() + " " + ItemOrder.getItemid());
 		
 		}	

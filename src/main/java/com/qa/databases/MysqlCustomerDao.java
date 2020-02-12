@@ -9,9 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class MysqlCustomerDao implements Dao <Customer>{
 
 	private Connection connection;
+	
+	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {
+		Long id = resultSet.getLong("id");
+		String firstName = resultSet.getString("first_name");
+		return new Customer(id, firstName);
+	}
+	
 	
 	public Customer create(Customer customer) {
 		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){

@@ -1,14 +1,22 @@
 package com.qa.databases;
 
-public class Orders {
+public class Order {
 	
-	private long orderid ;
-	private long customerid;
-	public Orders(long orderid, long customerid) {
-		super();
+	private Long orderid ;
+	private Long customerid;
+	
+	public Order(Long customerid) {
+		this.customerid = customerid;
+	}
+	
+	
+	public Order(Long orderid, Long customerid) {
 		this.orderid = orderid;
 		this.customerid = customerid;
 	}
+	
+	
+	
 	public long getOrderid() {
 		return orderid;
 	}

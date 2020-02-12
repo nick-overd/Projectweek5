@@ -6,22 +6,22 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class MysqlItemOrderDao implements Dao<ItemsOrders>{
+public class MysqlItemOrderDao implements Dao<ItemOrder>{
 	
 	private Connection connection;
 
-	public ItemsOrders create(ItemsOrders itemsorders) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+	public ItemOrder create(ItemOrder itemsorders) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("insert into items_orders(customer_id) values( " + itemsorders.getItemid() + "," + itemsorders.getOrderid() + ");");
 		} catch (Exception e) {
 		
 		}
-		return null;
+		return itemsorders;
 	}
 
-	public ArrayList<ItemsOrders> readAll() {
-		ArrayList<ItemsOrders> itemorders = new ArrayList<ItemsOrders>();
+	public ArrayList<ItemOrder> readAll() {
+		ArrayList<ItemOrder> itemorders = new ArrayList<ItemOrder>();
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root" ,"root12");
 			Statement statement = connection.createStatement();
@@ -30,7 +30,7 @@ public class MysqlItemOrderDao implements Dao<ItemsOrders>{
 				Long itorid = resultSet.getLong("it_or_id");
 				Long itemid = resultSet.getLong("item_id");
 				Long orderid = resultSet.getLong("order_id");
-				ItemsOrders itemorder = new ItemsOrders(itorid, itemid, orderid);
+				ItemOrder itemorder = new ItemOrder(itorid, itemid, orderid);
 				itemorders.add(itemorder);
 			}
 		} catch (Exception e) {
@@ -39,17 +39,17 @@ public class MysqlItemOrderDao implements Dao<ItemsOrders>{
 		return itemorders;
 	}
 
-	public ItemsOrders update(ItemsOrders itemorder) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+	public ItemOrder update(ItemOrder itemorder) {
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("update items_orders set " + " = "  + "' where it_or_id=" + itemorder.getItorid() + ";");
+			statement.executeUpdate("update items_orders set item_id = " + itemorder.getItemid() + ", set order_id = " + itemorder.getOrderid() + "  where item_id=" + itemorder.getItorid() + ";");
 		} catch (Exception e) {
 		}
-		return null;
+		return itemorder;
 	}
 
 	public void delete(long id) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("delete from items_orders where it_or_id=" + id + ";");
 		} catch (Exception e) {

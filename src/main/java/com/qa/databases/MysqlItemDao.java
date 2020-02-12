@@ -10,14 +10,14 @@ public class MysqlItemDao implements Dao<Item>{
 	private Connection connection;
 
 	public Item create(Item item) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 		Statement statement = connection.createStatement();
 		statement.executeUpdate("insert into items(name_of_item, cost_of_item) values(' " + item.getName() + "'," + item.getCost() + ");");
 		}
 		catch (Exception e) {
 	
 	}
-		return null;
+		return item;
 	}
 
 	public ArrayList<Item> readAll() {
@@ -41,16 +41,16 @@ public class MysqlItemDao implements Dao<Item>{
 	}
 
 	public Item update(Item item) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("update items set name = '" + item.getName() + "' where item_id=" + item.getId() + ";");
+			statement.executeUpdate("update items set name_of_item = '" + item.getName() + "', set cost_of_item = " + item.getCost() + "  where item_id=" + item.getId() + ";");
 		} catch (Exception e) {
 		}
-		return null;
+		return item;
 	}
 
 	public void delete(long id) {
-		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "admin", "root12")){
+		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 			Statement statement = connection.createStatement();
 			statement.executeUpdate("delete from items where item_id=" + id + ";");
 		} catch (Exception e) {

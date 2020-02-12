@@ -17,8 +17,6 @@ import com.qa.database.controller.CustomerController;
 import com.qa.database.services.CustomerServices;
 import com.qa.databases.Customer;
 
-//import com.qa.ims.persistence.domain.Customer;
-//import com.qa.ims.services.CustomerServices;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerControllerTest {

@@ -1,16 +1,26 @@
 package com.qa.databases;
 
-public class ItemsOrders {
+public class ItemOrder {
 	
 	private long itorid;
 	private long itemid;
 	private long orderid;
-	public ItemsOrders(long itorid, long itemid, long orderid) {
+	
+	
+	public ItemOrder(long itorid, long itemid, long orderid) {
 		super();
 		this.itorid = itorid;
 		this.itemid = itemid;
 		this.orderid = orderid;
 	}
+	
+	public ItemOrder(long itemid, long orderid) {
+		super();
+		this.itemid = itemid;
+		this.orderid = orderid;
+	}
+	
+	
 	public long getItorid() {
 		return itorid;
 	}

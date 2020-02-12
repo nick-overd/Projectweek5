@@ -25,9 +25,6 @@ public class CustomerController implements CrudController<Customer>{
 	public String getInput() {
 		return Utils.getInput();
 	}
-	int getNumInput() {
-		return Utils.getNumInput();
-		}
 	/**
 	 * Reads all customers to the logger
 	 */
@@ -46,8 +43,8 @@ public class CustomerController implements CrudController<Customer>{
 	@Override
 	public Customer create() {
 		LOGGER.info("Please enter a name");
-		String firstName = getInput();
-		Customer customer = customerService.create(new Customer(firstName));
+		String name = getInput();
+		Customer customer = customerService.create(new Customer(name));
 		LOGGER.info("Customer created");
 		return customer;
 	}

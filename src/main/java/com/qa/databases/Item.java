@@ -14,6 +14,11 @@ public class Item {
 		this.id = id;
 	}
 	
+	public Item(float cost, String name) {
+		this.cost = cost;
+		this.name = name;
+	}
+	
 	
 	public float getCost() {
 		return cost;
