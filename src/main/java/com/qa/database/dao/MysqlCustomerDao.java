@@ -1,4 +1,4 @@
-package com.qa.databases;
+package com.qa.database.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
+
+import com.qa.databases.Customer;
 
 
 
 public class MysqlCustomerDao implements Dao <Customer>{
-
 	private Connection connection;
 	
 	Customer customerFromResultSet(ResultSet resultSet) throws SQLException {

@@ -2,8 +2,7 @@ package com.qa.database.services;
 
 import java.util.List;
 
-import com.qa.databases.Customer;
-import com.qa.databases.Dao;
+import com.qa.database.dao.Dao;
 import com.qa.databases.Item;
 
 public class ItemServices implements CrudServices<Item> {

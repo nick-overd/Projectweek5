@@ -5,16 +5,18 @@ import org.apache.log4j.Logger;
 import com.qa.database.controller.Action;
 import com.qa.database.controller.CrudController;
 import com.qa.database.controller.CustomerController;
+import com.qa.database.dao.MysqlCustomerDao;
 import com.qa.database.services.CustomerServices;
 import com.qa.database.utils.Utils;
 import com.qa.databases.Domain;
-import com.qa.databases.MysqlCustomerDao;
 
 public class Ims {
 	
 	public static final Logger LOGGER = Logger.getLogger(Ims.class);
 
+	
 	public void imsSystem() {
+		while (true) {
 		LOGGER.info("What is your username");
 		String username = Utils.getInput();
 		
@@ -38,10 +40,12 @@ public class Ims {
 			break;
 		case STOP:
 			break;
+			
 		default:
 			break;
 		}
 		
+	}
 	}
 	
 	public void doAction(CrudController crudController, Action action) {
@@ -59,7 +63,7 @@ public class Ims {
 			crudController.delete();
 			break;
 		case RETURN:
-			break;
+				imsSystem();
 		default:
 			break;
 		}

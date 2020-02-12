@@ -3,7 +3,7 @@ package com.qa.database.services;
 import java.util.List;
 
 import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
-import com.qa.databases.Dao;
+import com.qa.database.dao.Dao;
 
 public class OrderServices implements CrudServices<Order> {
 

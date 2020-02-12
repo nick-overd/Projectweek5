@@ -1,9 +1,18 @@
-package com.qa.databases;
+package com.qa.database.runner;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Runner {
+import com.qa.database.dao.MysqlCustomerDao;
+import com.qa.database.dao.MysqlItemDao;
+import com.qa.database.dao.MysqlItemOrderDao;
+import com.qa.database.dao.MysqlOrderDao;
+import com.qa.databases.Customer;
+import com.qa.databases.Item;
+import com.qa.databases.ItemOrder;
+import com.qa.databases.Order;
+
+public class Runner2 {
 
 	public static void main(String[] args) throws SQLException{
 		// customer

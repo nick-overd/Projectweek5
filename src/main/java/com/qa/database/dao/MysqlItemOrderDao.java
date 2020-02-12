@@ -1,14 +1,25 @@
-package com.qa.databases;
+package com.qa.database.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.qa.databases.ItemOrder;
+
 public class MysqlItemOrderDao implements Dao<ItemOrder>{
 	
-	private Connection connection;
+//	private Connection connection;
+	
+	
+	ItemOrder itemorderFromResultSet(ResultSet resultSet) throws SQLException {
+		Long orderid = resultSet.getLong("order_id");
+		Long customerid = resultSet.getLong("customer_id");
+		return new ItemOrder(orderid, customerid);
+	}
+	
 
 	public ItemOrder create(ItemOrder itemsorders) {
 		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){

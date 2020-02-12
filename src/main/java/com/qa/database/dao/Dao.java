@@ -1,4 +1,4 @@
-package com.qa.databases;
+package com.qa.database.dao;
 
 //import java.util.List;
 import java.util.List;

@@ -39,6 +39,34 @@ public class ItemOrder {
 	public void setOrderid(long orderid) {
 		this.orderid = orderid;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (itemid ^ (itemid >>> 32));
+		result = prime * result + (int) (itorid ^ (itorid >>> 32));
+		result = prime * result + (int) (orderid ^ (orderid >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ItemOrder other = (ItemOrder) obj;
+		if (itemid != other.itemid)
+			return false;
+		if (itorid != other.itorid)
+			return false;
+		if (orderid != other.orderid)
+			return false;
+		return true;
+	}
 	
 	
 

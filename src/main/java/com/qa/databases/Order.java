@@ -29,6 +29,39 @@ public class Order {
 	public void setCustomerid(long customerid) {
 		this.customerid = customerid;
 	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customerid == null) ? 0 : customerid.hashCode());
+		result = prime * result + ((orderid == null) ? 0 : orderid.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Order other = (Order) obj;
+		if (customerid == null) {
+			if (other.customerid != null)
+				return false;
+		} else if (!customerid.equals(other.customerid))
+			return false;
+		if (orderid == null) {
+			if (other.orderid != null)
+				return false;
+		} else if (!orderid.equals(other.orderid))
+			return false;
+		return true;
+	}
 	
 
 }

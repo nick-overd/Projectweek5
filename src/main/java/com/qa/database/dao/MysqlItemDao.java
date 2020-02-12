@@ -1,14 +1,24 @@
-package com.qa.databases;
+package com.qa.database.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import com.qa.databases.Item;
 
 public class MysqlItemDao implements Dao<Item>{
-	private Connection connection;
+	//private Connection connection;
 
+	Item itemFromResultSet(ResultSet resultSet) throws SQLException {
+		Float cost = resultSet.getFloat("cost_of_item");
+		String name = resultSet.getString("name_of_item");
+		return new Item(cost, name);
+	}
+	
+	
+	
 	public Item create(Item item) {
 		try (Connection connection = DriverManager.getConnection("jdbc:mysql://35.246.46.47:3306/assignment", "root", "root12")){
 		Statement statement = connection.createStatement();

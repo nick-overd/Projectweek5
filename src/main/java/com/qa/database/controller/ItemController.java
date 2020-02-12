@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 
 import com.qa.database.services.CrudServices;
 import com.qa.database.utils.Utils;
-import com.qa.databases.Customer;
 import com.qa.databases.Item;
 
 public class ItemController implements CrudController<Item>{
